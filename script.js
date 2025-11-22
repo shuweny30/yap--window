@@ -45,7 +45,7 @@
     return;
   }
 
-  const guiPrimaryUrl = "/gui.js";
+  const guiPrimaryUrl = "/yap--window/gui.js";
 
   fetch(guiPrimaryUrl)
     .then((r) => {
@@ -69,7 +69,7 @@
           remove,
           child,
         };
-        const chatPrimaryUrl = "/chat.js";
+        const chatPrimaryUrl = "/yap--window/chat.js";
 
         fetch(chatPrimaryUrl)
           .then((r) => {
