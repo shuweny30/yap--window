@@ -3209,7 +3209,7 @@
         Make sure to follow all the instructions while answering questions.
         `;
 
-        /* // ---------------- Mock AI section ----------------
+        // ---------------- Mock AI section ----------------
         let aiReply = null;
 
         try {
@@ -3223,9 +3223,9 @@
           console.error("Error sending message to AI (mock):", err);
           aiReply = "Sorry, AI assistance is temporarily unavailable. Please try again later.";
         }
-        // ---------------- End Mock AI ---------------- */
+        // ---------------- End Mock AI ----------------
 
-        let aiReply = null;
+        /* let aiReply = null;
 
         try {
           const res = await fetch("https://yap-window.vercel.app/api/ai", {
@@ -3239,7 +3239,7 @@
         } catch (err) {
           console.error("Error sending message to AI:", err);
           aiReply = "Sorry, AI assistance is temporarily unavailable. Please try again later.";
-        }
+        } */
 
         const aiMessageRef = push(messagesRef);
         await update(aiMessageRef, {
