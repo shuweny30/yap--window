@@ -1,0 +1,25 @@
+name: AI Request
+
+on:
+  workflow_dispatch:  # this allows you to trigger it manually
+
+jobs:
+  call_ai:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Call Gemini API
+        env:
+          GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+          GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
+          PROMPT: "Hello from GitHub Actions!"
+        run: |
+          echo "Calling Gemini API..."
+          response=$(curl -s -X POST https://api.gemini.com/v1/generate \
+            -H "Authorization: Bearer $GEMINI_API_KEY_1" \
+            -H "Content-Type: application/json" \
+            -d "{\"model\": \"gemini-2.5-flash\", \"prompt\": \"$PROMPT\"}")
+          echo "Response: $response"
