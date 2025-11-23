@@ -3193,8 +3193,8 @@
           .slice(-20);
 
         const chatHistory = messageEntries
-          .map(([id, msg]) => {
-            return `${msg.User}: ${msg.Message.substring(0, 500)}`;
+          .map(([id, message]) => {
+            return `${message.User}: ${message.Message.substring(0, 500)}`;
           })
           .join("\n");
 
