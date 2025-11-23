@@ -15,7 +15,7 @@ body {
 	overflow: hidden;
 }
 
-/* .ai-thinking {
+.ai-thinking {
   opacity: 0.6;
   font-style: italic;
   color: #999;
@@ -32,4 +32,4 @@ body {
   0% { opacity: 0.3; }
   50% { opacity: 1; }
   100% { opacity: 0.3; }
-} */
+}

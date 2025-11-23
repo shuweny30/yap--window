@@ -3174,14 +3174,6 @@
           Date: d,
         });
 
-        // Show "thinking..." bubble immediately
-        const thinkingRef = push(messagesRef);
-        await update(thinkingRef, {
-          User: "[AI:thinking]",
-          Message: "thinking...",
-          Date: Date.now(),
-        });
-
         const messagesSnapshot = await get(messagesRef);
         const messages = messagesSnapshot.val() || {};
         const messageEntries = Object.entries(messages)
@@ -3193,6 +3185,18 @@
             return `${msg.User}: ${msg.Message.substring(0, 500)}`;
           })
           .join("\n");
+        
+        // Show "thinking..." bubble immediately
+        const thinkingRef = push(messagesRef);
+        await update(thinkingRef, {
+          User: "AI_thinking",
+          Message: "thinking...",
+          Date: Date.now(),
+        });
+        if (msg.User === "AI_thinking") {
+          // gray subtle "thinking..." bubble
+          bubble.classList.add("ai-thinking");
+        }
 
         const fullPrompt = `The following is a chat log for context. Messages from "[AI]" are past responses you have given, but you do not have memory of them. When a user asks a question, respond to the question only. Do not refer to the chat log without user request. Do not include any response of the history in your message. When referring to the chat log upon request, any messages from "[AI]" are your previous responses.
 
@@ -3235,10 +3239,14 @@
         
         // Replace the "thinking..." bubble with "typing..." bubble
         await update(thinkingRef, {
-          User: "[AI:typing]",
+          User: "AI_typing",
           Message: "typing...",
           Date: Date.now(),
         });
+        if (msg.User === "AI_typing") {
+          // animated "typing..." bubble
+          bubble.classList.add("ai-typing");
+        }
           
         // tiny delay to feel natural (optional)
         await new Promise((r) => setTimeout(r, 200));
