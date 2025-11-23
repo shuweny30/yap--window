@@ -3173,19 +3173,7 @@
           Message: message,
           Date: d,
         });
-
-        // Show "thinking..." bubble immediately
-        const thinkingRef = push(messagesRef);
-        await update(thinkingRef, {
-          User: "AI_thinking",
-          Message: "thinking...",
-          Date: Date.now(),
-        });
-        if (message.User === "AI_thinking") {
-          // gray subtle "thinking..." bubble
-          bubble.classList.add("ai-thinking");
-        }
-
+        
         const messagesSnapshot = await get(messagesRef);
         const messages = messagesSnapshot.val() || {};
         const messageEntries = Object.entries(messages)
@@ -3236,22 +3224,6 @@
           console.error("Error sending message to AI:", err);
           aiReply = "Sorry, AI assistance is temporarily unavailable. Please try again later.";
         }
-        
-        // Replace the "thinking..." bubble with "typing..." bubble
-        await update(thinkingRef, {
-          User: "AI_typing",
-          Message: "typing...",
-          Date: Date.now(),
-        });
-        if (message.User === "AI_typing") {
-          // animated "typing..." bubble
-          bubble.classList.add("ai-typing");
-        }
-          
-        // tiny delay to feel natural (optional)
-        await new Promise((r) => setTimeout(r, 200));
-  
-        await set(thinkingRef, null);
         
         const aiMessageRef = push(messagesRef);
         await update(aiMessageRef, {

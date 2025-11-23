@@ -14,22 +14,3 @@ body {
 	align-items: center;
 	overflow: hidden;
 }
-
-.ai-thinking {
-  opacity: 0.6;
-  font-style: italic;
-  color: #999;
-}
-
-.ai-typing {
-  opacity: 0.9;
-  font-style: italic;
-  color: #666;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
