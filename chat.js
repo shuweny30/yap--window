@@ -1670,13 +1670,13 @@
       }
     });
   }
-  const gSettingBtn = document.getElementById("g-setting");
+  /* const gSettingBtn = document.getElementById("g-setting");
   const gDropdown = document.getElementById("g-dropdown");
   const dropdownOptions = document.querySelectorAll(
     "#g-dropdown .dropdown-option",
   );
 
-  // Load saved setting from localStorage or default to "off" if not found
+  Load saved setting from localStorage or default to "off" if not found
   function loadSavedSetting() {
     const savedSetting = localStorage.getItem("g-setting-value") || "off";
 
@@ -1759,7 +1759,8 @@
   });
 
   // Also load the setting immediately in case the script runs after DOMContentLoaded
-  loadSavedSetting();
+  loadSavedSetting(); */
+  
   // fetch 24 data
   const url =
     "https://raw.githubusercontent.com/TheHumblePotato/Yap-Window/refs/heads/main/Code/24answers.json";
@@ -2745,7 +2746,7 @@
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     if (message) {
-      /* // Check which option is selected in the dropdown
+      /* Check which option is selected in the dropdown
       const gDropdown = document.getElementById("g-dropdown");
       const selectedOption = gDropdown.querySelector(
         ".dropdown-option.selected",
