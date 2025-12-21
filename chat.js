@@ -2754,7 +2754,7 @@
         ? selectedOption.dataset.value
         : "off";
 
-      if (selectedValue === "on" && message.trim().charAt(0) != "/") {
+      /* if (selectedValue === "on" && message.trim().charAt(0) != "/") {
         // Use the AI to process the message with grammar correction
         let d = Date.now();
 
@@ -3231,7 +3231,8 @@
           Message: aiReply,
           Date: d,
         });
-      } else if (pureMessage.trim().toLowerCase().startsWith("/eod")) {
+      } else */
+      if (pureMessage.trim().toLowerCase().startsWith("/eod")) {
         const parts = message.split(" ");
         let yesChance = 45;
         let noChance = 45;
@@ -3334,7 +3335,6 @@
           User: BOT_USERS.HELP,
           Message: `Yap Window Commands:<br>
                     <b>/help</b> — Show this help message<br>
-                    <b>/ai [prompt]</b> — Ask the AI a question<br>
                     <b>/eod</b> — Magically tell you the anser to any question with yes, no, or maybe.<br>
                     <b>/coinflip</b> — Flip a coin<br>
                     <b>/snake</b> — Play Snake game<br>
